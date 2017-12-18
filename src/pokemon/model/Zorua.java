@@ -4,7 +4,7 @@ public class Zorua extends Pokemon implements Dark
 {
 	public Zorua(int number, String name)
 	{
-		super(number,name);
+		super(number, name);
 	}
 	
 	public void punishment()
@@ -17,10 +17,10 @@ public class Zorua extends Pokemon implements Dark
 		return "Zorua is forming a plot";
 	}
 	
-	public int bite()
+	public int bite(int biteDamage)
 	{
-		int sample = 0;
+		int damage = 0;
 		
-		return sample;
+		return damage;
 	}
 }

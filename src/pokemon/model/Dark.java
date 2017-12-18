@@ -4,5 +4,5 @@ public interface Dark
 {
 	public void punishment();
 	public String nastyPlot();
-	public int bite();
+	public int bite(int biteDamage);
 }
