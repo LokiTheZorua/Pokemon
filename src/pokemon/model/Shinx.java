@@ -2,6 +2,15 @@ package pokemon.model;
 
 public class Shinx extends Pokemon implements Electric 
 {
+	public Shinx()
+	{
+		super(403, "Shinx");
+	}
+	
+	public Shinx(String name)
+	{
+		super(403, name);
+	}
 	public Shinx(int number, String name)
 	{
 		super(number, name);

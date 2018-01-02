@@ -5,6 +5,20 @@ public class Zorua extends Pokemon implements Dark
 	public Zorua(int number, String name)
 	{
 		super(number, name);
+		setup();
+	}
+	
+	public Zorua()
+	{
+		super(570, "Zorua");
+		setup();
+	}
+	
+	public Zorua(String name)
+	{
+		
+		super(570, name);
+		setup();
 	}
 	
 	public void punishment()
@@ -22,5 +36,14 @@ public class Zorua extends Pokemon implements Dark
 		int damage = 60;
 		
 		return damage;
+	}
+	
+
+	protected void setup()
+	{
+		this.setAttackPoints(70);
+		this.setCanEvolve(true);
+		this.setEnhancementModifier(1.09);
+		this.setHealthPoints(70);
 	}
 }
