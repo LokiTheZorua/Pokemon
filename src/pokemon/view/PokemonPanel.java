@@ -22,6 +22,7 @@ public class PokemonPanel extends JPanel
 	private	JLabel evolveableLabel;
 	private JLabel modifierLabel;
 	private	JLabel iconLabel;
+	private JLabel numberLabel;
 	
 	private JCheckBox evolvableBox;
 	private JTextField nameField;
@@ -50,9 +51,39 @@ public class PokemonPanel extends JPanel
 		appLayout = new SpringLayout();
 		
 		evolvableBox = new JCheckBox();
-		
+		nameField = new JTextField("name");
+		numberField = new JTextField("##");
+		attackField = new JTextField("ap");
+		healthField = new JTextField("hp");
+		modifierField = new JTextField("mod");
 		
 		iconLabel = new JLabel("", new ImageIcon(getClass().getResource("/pokemon/view/images/pokeballTransparent.png")), JLabel.CENTER);
+		
+		nameLabel = new JLabel("name");
+		evolveableLabel = new JLabel("evolvable");
+		numberLabel = new JLabel("number");
+		attackLabel = new JLabel("attack");
+		healthLabel= new JLabel("health");
+		modifierLabel = new JLabel("modifier");
+		
+		pokedexDropdown = new JComboBox();
+		clearButton = new JButton("Clear");
+		saveButton = new JButton("Save");
+		
+		descriptionArea = new JTextArea(5,10);
+		typeArea = new JTextArea(4,15);
+		
+		firstType = new JPanel();
+		secondType = new JPanel();
+		thirdType = new JPanel();
+		fourthType = new JPanel();
+		
+		setupComboBox();
+		setupTypePanels();
+		setupPanel();
+		setupLayout();
+		setupListeners();
+		
 	}
 	private void updatePokeDexInfo(int index)
 	{
@@ -77,10 +108,20 @@ public class PokemonPanel extends JPanel
 		thirdType.setSize(50,50);
 		fourthType.setSize(50,50);
 	}
+	
+	public void updatePokedexInfo()
+	{
+		
+	}
+	
+	public void updateImage()
+	{
+		
+	}
 
 	private void setupPanel()
 	{
-		this.setBackground(Color.RED);
+		this.setBackground(Color.red);
 		this.setLayout(appLayout);
 		this.add(healthLabel);
 		this.add(attackLabel);
@@ -88,6 +129,7 @@ public class PokemonPanel extends JPanel
 		this.add(evolveableLabel);
 		this.add(modifierLabel);
 		this.add(iconLabel);
+		this.add(numberLabel);
 		
 		this.add(evolvableBox);
 		this.add(nameField);
@@ -111,7 +153,7 @@ public class PokemonPanel extends JPanel
 	
 	private void updateTypePanels()
 	{
-		String[] types = appController.getPokdex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
+		String[] types = appController.getPokedex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
 		
 		if (types[0].equals("Electric"))
 		{
@@ -136,12 +178,36 @@ public class PokemonPanel extends JPanel
 			{
 				secondType.setBackground(Color.YELLOW);
 			}
+			else if (types[1].equals("Dark"))
+			{
+				firstType.setBackground(Color.BLACK);
+			}
+			else if (types[1].equals("Normal"))
+			{
+				firstType.setBackground(Color.WHITE);
+			}
+			else
+			{
+				firstType.setBackground(Color.WHITE);
+			}
 			
-			if(types.legnth == 3)
+			if(types.length == 3)
 			{
 				if (types[2].equals("Electric"))
 				{
 					thirdType.setBackground(Color.YELLOW);
+				}
+				else if (types[2].equals("Dark"))
+				{
+					firstType.setBackground(Color.BLACK);
+				}
+				else if (types[3].equals("Normal"))
+				{
+					firstType.setBackground(Color.WHITE);
+				}
+				else
+				{
+					firstType.setBackground(Color.WHITE);
 				}
 			}
 		}
