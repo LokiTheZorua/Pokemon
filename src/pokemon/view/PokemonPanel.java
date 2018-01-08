@@ -6,6 +6,9 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.color.*;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class PokemonPanel extends JPanel
 {
 	public PokemonPanel() {
@@ -39,6 +42,18 @@ public class PokemonPanel extends JPanel
 	private JPanel thirdType;
 	private JPanel fourthType;
 	
+	public PokemonPanel(PokemonController appController)
+	{
+		super();
+		this.appController = appController;
+		
+		appLayout = new SpringLayout();
+		
+		evolvableBox = new JCheckBox();
+		
+		
+		iconLabel = new JLabel("", new ImageIcon(getClass().getResource("/pokemon/view/images/pokeballTransparent.png")), JLabel.CENTER);
+	}
 	private void updatePokeDexInfo(int index)
 	{
 		nameField.setText(appController.getPokedex().get(index).getName());
@@ -48,6 +63,21 @@ public class PokemonPanel extends JPanel
 		healthField.setText(appController.getPokedex().get(index).getHealthPoints() + "");
 		modifierField.setText(appController.getPokedex().get(index).getEnhancementModifier() + "");
 	}
+	
+	private void setupComboBox()
+	{
+		DefaultComboBoxModel pokemonModel = new DefaultComboBoxModel(appController.convertPokedex());
+		pokedexDropdown.setModel(pokemonModel);
+	}
+	
+	private void setupTypePanels()
+	{
+		firstType.setSize(50,50);
+		secondType.setSize(50,50);
+		thirdType.setSize(50,50);
+		fourthType.setSize(50,50);
+	}
+
 	private void setupPanel()
 	{
 		this.setBackground(Color.RED);
@@ -59,11 +89,82 @@ public class PokemonPanel extends JPanel
 		this.add(modifierLabel);
 		this.add(iconLabel);
 		
+		this.add(evolvableBox);
+		this.add(nameField);
+		this.add(numberField);
+		this.add(attackField);
+		this.add(healthField);
+		this.add(modifierField);
+		
+		this.add(descriptionArea);
+		this.add(typeArea);
+		
+		this.add(saveButton);
+		this.add(clearButton);
+		this.add(pokedexDropdown);
+		
+		this.add(firstType);
+		this.add(secondType);
+		this.add(thirdType);
+		this.add(fourthType);
+	}
+	
+	private void updateTypePanels()
+	{
+		String[] types = appController.getPokdex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
+		
+		if (types[0].equals("Electric"))
+		{
+			firstType.setBackground(Color.YELLOW);
+		}
+		else if (types[0].equals("Dark"))
+		{
+			firstType.setBackground(Color.BLACK);
+		}
+		else if (types[0].equals("Normal"))
+		{
+			firstType.setBackground(Color.WHITE);
+		}
+		else
+		{
+			firstType.setBackground(Color.WHITE);
+		}
+		
+		if (types.length > 1)
+		{
+			if (types[1].equals("Electric"))
+			{
+				secondType.setBackground(Color.YELLOW);
+			}
+			
+			if(types.legnth == 3)
+			{
+				if (types[2].equals("Electric"))
+				{
+					thirdType.setBackground(Color.YELLOW);
+				}
+			}
+		}
 	}
 	
 	private void setupLayout()
 	{
 		
+	}
+	
+	private void setupListeners()
+	{
+		pokedexDropdown.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent selection)
+					{
+						int selectedPokemonIndex = pokedexDropdown.getSelectedIndex();
+						updatePokedexInfo(selectedPokemonIndex);
+						updateImage();
+						updateTypePanels();
+						repaint();
+					}
+				});
 	}
 }
 
