@@ -4,15 +4,14 @@ import pokemon.controller.PokemonController;
 import javax.swing.*;
 
 import java.awt.Color;
-import java.awt.color.*;
+
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class PokemonPanel extends JPanel
 {
-	public PokemonPanel() {
-	}
+
 	private PokemonController appController;
 	private SpringLayout appLayout;
 	
@@ -47,8 +46,7 @@ public class PokemonPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
-		this.appLayout = new SpringLayout();
-		appLayout = new SpringLayout();
+		this.appLayout = new SpringLayout();		
 		
 		evolvableBox = new JCheckBox();
 		nameField = new JTextField("name");
@@ -77,10 +75,9 @@ public class PokemonPanel extends JPanel
 		secondType = new JPanel();
 		thirdType = new JPanel();
 		fourthType = new JPanel();
-		
+		setupPanel();
 		setupComboBox();
 		setupTypePanels();
-		setupPanel();
 		setupLayout();
 		setupListeners();
 		
@@ -107,11 +104,6 @@ public class PokemonPanel extends JPanel
 		secondType.setSize(50,50);
 		thirdType.setSize(50,50);
 		fourthType.setSize(50,50);
-	}
-	
-	public void updatePokedexInfo()
-	{
-		
 	}
 	
 	public void updateImage()
