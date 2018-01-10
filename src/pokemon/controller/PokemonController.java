@@ -15,7 +15,7 @@ public class PokemonController
 {
 	private List<Pokemon> pokedex;
 	
-	private PokemonFrame appFrame;
+	
 	
 	public List<Pokemon> getPokedex()
 	{
