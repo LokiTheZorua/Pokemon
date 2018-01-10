@@ -47,7 +47,7 @@ public class PokemonPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
-		
+		this.appLayout = new SpringLayout();
 		appLayout = new SpringLayout();
 		
 		evolvableBox = new JCheckBox();
@@ -85,7 +85,7 @@ public class PokemonPanel extends JPanel
 		setupListeners();
 		
 	}
-	private void updatePokeDexInfo(int index)
+	private void updatePokedexInfo(int index)
 	{
 		nameField.setText(appController.getPokedex().get(index).getName());
 		evolvableBox.setSelected(appController.getPokedex().get(index).isCanEvolve());
