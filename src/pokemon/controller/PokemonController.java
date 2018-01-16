@@ -13,9 +13,13 @@ import pokemon.model.Helioptile;
 
 public class PokemonController
 {
+	
+	public void start()
+	{
+		
+	}
+	
 	private List<Pokemon> pokedex;
-	
-	
 	
 	public List<Pokemon> getPokedex()
 	{

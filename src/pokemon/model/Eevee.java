@@ -30,4 +30,11 @@ public class Eevee extends Pokemon implements Normal
 	{
 		return "there is no pokemon to use helping hand on";
 	}
+	protected void setup()
+	{
+		this.setAttackPoints(40);
+		this.setCanEvolve(true);
+		this.setEnhancementModifier(0.99);
+		this.setHealthPoints(80);
+	}
 }
