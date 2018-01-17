@@ -4,7 +4,7 @@ public class Helioptile extends Pokemon implements Normal, Electric
 {
 	public Helioptile()
 	{
-		super(694, "Helioptitle");
+		super(694, "Helioptile");
 		setup();
 	}
 	

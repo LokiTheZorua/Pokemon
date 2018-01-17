@@ -143,7 +143,7 @@ public class PokemonPanel extends JPanel
 	
 	public void updateImage()
 	{
-		String path = "/pokemon/view/images";
+		String path = "/pokemon/view/images/";
 		String defaultName = "Pokeball";
 		String name = pokedexDropdown.getSelectedItem().toString();
 		String extension = ".png";
@@ -157,6 +157,7 @@ public class PokemonPanel extends JPanel
 		{
 			pokemonIcon = new ImageIcon(getClass().getResource(path + defaultName + extension));
 		}
+		iconLabel.setIcon(pokemonIcon);
 	}
 
 	private void setupPanel()
@@ -195,6 +196,10 @@ public class PokemonPanel extends JPanel
 	{
 		String[] types = appController.getPokedex().get(pokedexDropdown.getSelectedIndex()).getPokemonTypes();
 		
+		firstType.setBackground(Color.WHITE);
+		secondType.setBackground(Color.WHITE);
+		
+		
 		if (types[0].equals("Electric"))
 		{
 			firstType.setBackground(Color.YELLOW);
@@ -205,7 +210,7 @@ public class PokemonPanel extends JPanel
 		}
 		else if (types[0].equals("Normal"))
 		{
-			firstType.setBackground(Color.WHITE);
+			firstType.setBackground(Color.GRAY);
 		}
 		else
 		{
@@ -224,7 +229,7 @@ public class PokemonPanel extends JPanel
 			}
 			else if (types[1].equals("Normal"))
 			{
-				firstType.setBackground(Color.WHITE);
+				firstType.setBackground(Color.GRAY);
 			}
 			else
 			{
@@ -243,7 +248,7 @@ public class PokemonPanel extends JPanel
 				}
 				else if (types[3].equals("Normal"))
 				{
-					firstType.setBackground(Color.WHITE);
+					firstType.setBackground(Color.GRAY);
 				}
 				else
 				{
