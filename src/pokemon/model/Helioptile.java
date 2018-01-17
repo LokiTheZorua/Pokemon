@@ -5,16 +5,19 @@ public class Helioptile extends Pokemon implements Normal, Electric
 	public Helioptile()
 	{
 		super(694, "Helioptitle");
+		setup();
 	}
 	
 	public Helioptile(String name)
 	{
 		super(694, name);
+		setup();
 	}
 	
 	public Helioptile(int number, String name)
 	{
 		super(number, name);
+		setup();
 	}
 	
 	public void spark()
@@ -44,5 +47,13 @@ public class Helioptile extends Pokemon implements Normal, Electric
 	public String helpingHand()
 	{
 		return "There is no pokemon to use helping hand on";
+	}
+	
+	protected void setup()
+	{
+		this.setAttackPoints(60);
+		this.setCanEvolve(false);
+		this.setEnhancementModifier(.8);
+		this.setHealthPoints(140);
 	}
 }
