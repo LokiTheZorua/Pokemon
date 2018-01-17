@@ -51,6 +51,8 @@ public class PokemonController
 		pokedex.add(new Shinx());
 		pokedex.add(new Helioptile());
 		pokedex.add(new Lillipup());
+		
+		FileController.savePokemonmonToFile((ArrayList<Pokemon>) pokedex);
 	}
 	
 	public boolean isValidDouble(String input)

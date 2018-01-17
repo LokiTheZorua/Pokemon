@@ -5,16 +5,19 @@ public class Eevee extends Pokemon implements Normal
 	public Eevee()
 	{
 		super(133, "Eevee");
+		setup();
 	}
 	
 	public Eevee(String name)
 	{
 		super (133, name);
+		setup();
 	}
 	
 	public Eevee(int number, String name)
 	{
 		super(number, name);
+		setup();
 	}
 	public void fakeTears()
 	{
